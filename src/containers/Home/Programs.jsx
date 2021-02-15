@@ -31,7 +31,6 @@ const Programs = ({
   useEffect(() => {
     Axios.get(`programs?sort=cat&page=1&cat_ids=1`)
       .then((res) => {
-        console.log(res.data);
         return setprogram({ ...program, ...res.data, loading: false });
       })
       .catch((err) => {
