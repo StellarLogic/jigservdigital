@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { createPortal } from "react-dom/cjs/react-dom.development";
+// import { createPortal } from "react-dom/cjs/react-dom.development";
+import { createPortal } from "react-dom";
 import { connect } from "react-redux";
 import { Button, Grid, makeStyles, Divider } from "@material-ui/core/";
 import ProgramCard from "../ProgramCard/ProgramCard";
@@ -13,9 +14,9 @@ const Compare = ({
   setminimize,
 }) => {
   const classes = useStyles();
-  let CompareBlock = null;
+  let compareBlock = null;
 
-  CompareBlock = (
+  compareBlock = (
     <Grid className={classes.compare}>
       {!minimized && (
         <>
@@ -54,9 +55,9 @@ const Compare = ({
   );
 
   if (!compare.length) {
-    CompareBlock = null;
+    compareBlock = null;
   }
-  return createPortal(CompareBlock, document.getElementById("compare"));
+  return createPortal(compareBlock, document.getElementById("compare"));
 };
 
 const useStyles = makeStyles((theme) => ({
